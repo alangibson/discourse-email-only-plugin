@@ -1,0 +1,14 @@
+<div style="border: 1px solid lightgray; padding: 0 0.5rem; margin-bottom: 1rem;">
+    <form class="form-horizontal">
+        <p>Watch this topic for updates</p>
+        <p>
+            {{input type="text" name="email" value=email}}
+        </p>
+        {{d-button
+            action=(action "lonerWatch")
+            label="loners.watch_button"
+            title="loners.watch_button"
+            icon="plus"
+            class="btn-primary btn btn-icon"}}
+    </form>
+</div>

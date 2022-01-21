@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
-# name: loners
+# name: discourse-loners
 # about: Watch and reply to topics using only your email
 # version: 0.0.1
-# authors: Discourse
-# url: TODO
+# authors: Alan Gibson
+# url: https://github.com/alangibson/discourse-loners
 # required_version: 2.7.0
 # transpile_js: true
 
-gem 'faker', '2.19.0', {require: false }
+# gem 'faker', '2.19.0', {require: false }
 
 enabled_site_setting :loners_enabled
 

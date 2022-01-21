@@ -1,5 +1,5 @@
-require 'faker'
-I18n.reload!
+# require 'faker'
+# I18n.reload!
 
 class LonersController < ApplicationController
 
@@ -26,7 +26,8 @@ class LonersController < ApplicationController
         user = User.new
         user.staged = true
         user.email = @email
-        user.username = Faker::FunnyName.name.gsub(' ', '')[0...10] + SecureRandom.alphanumeric(4) + '_guest'
+        # user.username = Faker::FunnyName.name.gsub(' ', '')[0...10] + SecureRandom.alphanumeric(4) + '_guest'
+        user.username = SecureRandom.alphanumeric(10) + '_guest'
         user.active = false
         user.save!
       end

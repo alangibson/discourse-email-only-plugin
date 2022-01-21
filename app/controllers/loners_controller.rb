@@ -1,5 +1,3 @@
-require 'faker'
-
 class LonersController < ApplicationController
 
     include RecaptchaVerifiable

@@ -8,6 +8,8 @@
 # required_version: 2.7.0
 # transpile_js: true
 
+gem 'faker', '2.19.0', {require: false }
+
 enabled_site_setting :loners_enabled
 
 load File.expand_path('../lib/google_recaptcha.rb', __FILE__)

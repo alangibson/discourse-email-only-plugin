@@ -1,0 +1,47 @@
+{{#unless currentUser}}
+<style>
+    #topic-footer-buttons {
+        display: none;
+    }
+    div.loner-reply {
+        max-width: calc(690px + (11px * 2) + 45px);
+    }
+    input.loner-reply {
+        width: 100%;
+    }
+    textarea.loner-reply {
+        width: 100%;
+    }
+</style>
+<div style="clear: both;">&nbsp;</div>
+<div class="loner-reply signup-cta alert alert-info">
+    <form class="form-horizontal">
+        <h3>
+            {{i18n "loners.reply_explanation"}}
+        </h3>
+        <p></p>
+        <p>
+            {{input class="loner-reply" type="text" name="email" placeholder=(i18n "loners.your_email_placeholder") value=email}}
+            {{input type="hidden" name="topic_id" value=model.id}}
+        </p>
+        <p>
+            {{textarea class="loner-reply" value=body placeholder=(i18n "loners.your_message")}}
+        </p>
+
+        {{!-- {{topic-notifications-button topic=model notificationLevel=3}} --}}
+
+        {{#if siteSettings.loners_captcha_enabled}}
+        <div class="g-recaptcha pull-right" data-sitekey="{{siteSettings.loners_captcha_public_key}}"></div>
+        <div style="clear: both;">&nbsp;</div>
+        {{/if}}
+
+        {{d-button
+            action=(action "lonerReply")
+            label="loners.reply_and_watch_button"
+            title="loners.reply_and_watch_button"
+            icon="reply"
+            class="btn-primary btn btn-icon pull-right"}}
+    </form>
+    <div style="clear: both;">&nbsp;</div>
+</div>
+{{/unless}}

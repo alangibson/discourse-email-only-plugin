@@ -1,0 +1,44 @@
+{{#unless currentUser}}
+<style>
+    div.loner-watch {
+        border-left: 1px solid var(--primary-low);
+        padding: 0 0.5rem; 
+        margin-bottom: 1rem;
+    }
+    input.loner-watch {
+        width: 100%;
+    }
+    @media only screen and (max-width: 925px) {
+        div.loner-watch {
+            display: none;
+        }
+    }
+</style>
+<div class="loner-watch">
+
+    <form class="form-horizontal">
+        <p>
+            {{i18n "loners.watch_for_updates"}}
+        </p>
+        <p>
+            {{input class="loner-watch" type="text" name="email" placeholder=(i18n "loners.your_email_placeholder") value=email}}
+            {{input class="loner-watch" type="hidden" name="topic_id" value=topic.id}}
+        </p>
+        
+        {{#if siteSettings.loners_captcha_enabled}}
+        <p>
+            <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+            <div class="g-recaptcha" data-sitekey="{{siteSettings.loners_captcha_public_key}}"></div>
+        </p>
+        {{/if}}
+
+        {{d-button
+            action=(action "lonerWatch")
+            label="loners.watch_button"
+            title="loners.watch_button"
+            icon="plus"
+            class="btn-primary btn btn-icon"}}
+    </form>
+
+</div>
+{{/unless}}

@@ -2,3 +2,11 @@ plugins:
   loners_enabled:
     default: true
     client: true
+  loners_captcha_enabled:
+    default: false
+    client: true
+  loners_captcha_public_key:
+    default: ""
+    client: true
+  loners_captcha_secret_key:
+    default: ""

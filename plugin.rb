@@ -10,13 +10,21 @@
 
 enabled_site_setting :loners_enabled
 
+load File.expand_path('../lib/google_recaptcha.rb', __FILE__)
+load File.expand_path('../services/recaptcha_verifier.rb', __FILE__)
+load File.expand_path('../app/controllers/concerns/recaptcha_verifiable.rb', __FILE__)
+
 after_initialize do
 
-    require_dependency File.expand_path('../app/loners_controller', __FILE__)
+    load File.expand_path('../app/controllers/loners_controller.rb', __FILE__)
 
     Discourse::Application.routes.append do
         post '/loners/watch' => 'loners#watch'
         post '/loners/reply' => 'loners#reply'
+        put '/loners/:request_id' => 'loners#put'
+        put '/watchs/:request_id' => 'loners#put'
+
+        match '/grverify' => 'recaptcha#index', :via => :post
     end
 
 end

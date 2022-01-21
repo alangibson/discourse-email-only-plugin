@@ -1,1 +1,7 @@
 en:
+  site_settings:
+    loners_captcha_enabled: 'Enable Captcha'
+    loners_captcha_public_key: 'Captcha Public Key'
+    loners_captcha_secret_key: 'Captcha Secret Key'
+    loners_enabled: Enable Loners plugin
+    

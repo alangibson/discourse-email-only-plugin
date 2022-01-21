@@ -1,4 +1,9 @@
 en:
   js:
     loners:
+      reply_explanation: Not registered? Reply using just your email. You can always register later for the full experience.
       watch_button: Watch
+      reply_and_watch_button: Reply and Watch
+      your_email_placeholder: Your email address
+      your_message: Your message ...
+      watch_for_updates: Not registered? Watch this topic for updates using just your email address.

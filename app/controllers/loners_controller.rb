@@ -19,6 +19,8 @@ class LonersController < ApplicationController
       # Create a staged user manually
       if !user
 
+        # TODO make sure @email is a valid email
+
         # FIXME if user enters email that already exists for an active user, Rails returns 422 error when we save user
         #       ActiveRecord::RecordInvalid (Validation failed: Primary email has already been taken)
         # This does not happen here with a staged user becase we would never have entered this block
@@ -30,6 +32,10 @@ class LonersController < ApplicationController
         user.username = SecureRandom.alphanumeric(10) + '_guest'
         user.active = false
         user.save!
+
+        # Send registration email
+        email_token = user.email_tokens.create!(email: @email, scope: EmailToken.scopes[:signup])
+        EmailToken.enqueue_signup_email(email_token)
       end
       
       user
